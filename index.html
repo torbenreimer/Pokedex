@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="color.css" />
+
+    <script src="script.js"></script>
+    <script src="template.js"></script>
+  </head>
+  <body onload="loadPokemon()" id="body">
+    <div class="open-pokedex-bg d-none" id="pokedexBg">
+      <div class="pokedex-card" id="pokedexCard">
+      </div>
+          
+    </div>
+
+    <header>
+        <img src="img/pokemon-logo.png" />
+        <h1><i>Pokemon</i></h1>
+    </header>
+
+    <main>
+     
+      <div id="allPokemons">
+      </div>
+      
+    </main>
+  </body>
+</html>
