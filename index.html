@@ -5,15 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="color.css" />
 
@@ -22,21 +39,26 @@
   </head>
   <body onload="loadPokemon()" id="body">
     <div class="open-pokedex-bg d-none" id="pokedexBg">
-      <div class="pokedex-card" id="pokedexCard">
-      </div>
-          
+      <div class="pokedex-card" id="pokedexCard"></div>
     </div>
 
     <header>
+      <div class="menu">
+        <img src="img/menu.png" onclick="openSideBar()" />
+      </div>
+      <input type="text" placeholder="search Pokemon..." id="search">
+      <div class="logo">
         <img src="img/pokemon-logo.png" />
         <h1><i>Pokemon</i></h1>
+      </div>
     </header>
 
     <main>
-     
-      <div id="allPokemons">
+      <div id="allPokemons"></div>
+
+      <div class="load-more">
+        <button class="btn btn-primary" onclick="loadMore()">Load More</button>
       </div>
-      
     </main>
   </body>
 </html>

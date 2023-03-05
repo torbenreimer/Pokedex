@@ -23,6 +23,11 @@
     border-radius: 30px;
 }
 
+.type-ice{
+    background-color: #96D9D6;
+    border-radius: 30px;
+}
+
 .type-fighting{
     background-color: #C22E28;
     border-radius: 30px;
@@ -55,6 +60,21 @@
 
 .type-ghost{
     background-color: #735797;
+    border-radius: 30px;
+}
+
+.type-dragon{
+    background-color: #6F35FC;
+    border-radius: 30px;
+}
+
+.type-dark{
+    background-color: #705746;
+    border-radius: 30px;
+}
+
+.type-steel{
+    background-color: #B7B7CE;
     border-radius: 30px;
 }
 

@@ -1,10 +1,12 @@
 let pokedex = [];
-
+let currentLoad = 1;
 let currentPokemonNumber;
 let currentPokemon;
+let limit = 50;
 
 async function loadPokemon() {
-  for (let i = 1; i <= 100; i++) {
+  for (let i = currentLoad; i <= limit; i++) {
+    currentLoad++;
     await getUrl(i);
   }
 }
@@ -18,9 +20,26 @@ async function getUrl(i) {
   renderPokemon();
 }
 
+function loadMore(){
+  limit = limit+20;
+  loadPokemon();
+}
+
 function renderPokemon() {
-  document.getElementById("allPokemons").innerHTML += renderPokemonHtml();
+  document.getElementById('allPokemons').innerHTML += renderPokemonHtml();
+  checkSecondType();
   getType();
+}
+
+function checkSecondType() {
+  let types = currentPokemon["types"];
+  if (types.length == 2) {
+      document.getElementById(`types${currentPokemonNumber}`).innerHTML += `
+      <img src="icons/${types[0]["type"]["name"]}.svg">
+      <img src="icons/${types[1]["type"]["name"]}.svg">`;
+  } else {
+    document.getElementById(`types${currentPokemonNumber}`).innerHTML += `<img src="icons/${types[0]["type"]["name"]}.svg">`;
+  }
 }
 
 function openCard(id) {
@@ -39,7 +58,7 @@ function openInfos(id) {
   document.getElementById("infosBtn").classList.add("active-button");
   let openInfos = pokedex[id - 1];
   document.getElementById("stats").innerHTML = openInfosHtml(openInfos);
-  checkSecondType(openInfos);
+  checkSecondTypeOpenedCard(openInfos);
 }
 
 function renderStats(openedPokemon, id) {
@@ -83,13 +102,13 @@ function lastPokemon(id) {
   }
 }
 
-function checkSecondType(openInfos) {
+function checkSecondTypeOpenedCard(openInfos) {
   let types = openInfos["types"];
-  if(types.length == 2){
-    document.getElementById('type1').innerHTML = `${types[0]['type']['name']}`;
-    document.getElementById('type2').innerHTML = `${types[1]['type']['name']}`;
-  }else{
-    document.getElementById('type1').innerHTML = `${types[0]['type']['name']}`;
+  if (types.length == 2) {
+    document.getElementById("type1").innerHTML = `${types[0]["type"]["name"]}`;
+    document.getElementById("type2").innerHTML = `${types[1]["type"]["name"]}`;
+  } else {
+    document.getElementById("type1").innerHTML = `${types[0]["type"]["name"]}`;
   }
 }
 
@@ -107,4 +126,8 @@ function checkType(openedPokemon) {
 
 function closeStats() {
   document.getElementById("pokedexBg").classList.add("d-none");
+}
+
+function openSideBar(){
+  
 }
