@@ -128,6 +128,3 @@ function closeStats() {
   document.getElementById("pokedexBg").classList.add("d-none");
 }
 
-function openSideBar(){
-  
-}
