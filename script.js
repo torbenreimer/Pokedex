@@ -20,13 +20,13 @@ async function getUrl(i) {
   renderPokemon();
 }
 
-function loadMore(){
-  limit = limit+20;
+function loadMore() {
+  limit = limit + 20;
   loadPokemon();
 }
 
 function renderPokemon() {
-  document.getElementById('allPokemons').innerHTML += renderPokemonHtml();
+  document.getElementById("allPokemons").innerHTML += renderPokemonHtml();
   checkSecondType();
   getType();
 }
@@ -34,11 +34,13 @@ function renderPokemon() {
 function checkSecondType() {
   let types = currentPokemon["types"];
   if (types.length == 2) {
-      document.getElementById(`types${currentPokemonNumber}`).innerHTML += `
+    document.getElementById(`types${currentPokemonNumber}`).innerHTML += `
       <img src="icons/${types[0]["type"]["name"]}.svg">
       <img src="icons/${types[1]["type"]["name"]}.svg">`;
   } else {
-    document.getElementById(`types${currentPokemonNumber}`).innerHTML += `<img src="icons/${types[0]["type"]["name"]}.svg">`;
+    document.getElementById(
+      `types${currentPokemonNumber}`
+    ).innerHTML += `<img src="icons/${types[0]["type"]["name"]}.svg">`;
   }
 }
 
@@ -59,6 +61,7 @@ function openInfos(id) {
   let openInfos = pokedex[id - 1];
   document.getElementById("stats").innerHTML = openInfosHtml(openInfos);
   checkSecondTypeOpenedCard(openInfos);
+  checkSecondAbilitiesOpenedCard(openInfos);
 }
 
 function renderStats(openedPokemon, id) {
@@ -112,6 +115,16 @@ function checkSecondTypeOpenedCard(openInfos) {
   }
 }
 
+function checkSecondAbilitiesOpenedCard(openInfos){
+  let abilities = openInfos["abilities"];
+  if (abilities.length == 2) {
+    document.getElementById("ability1").innerHTML = `${abilities[0]["ability"]["name"]},`;
+    document.getElementById("ability2").innerHTML = `${abilities[1]["ability"]["name"]}`;
+  } else {
+    document.getElementById("ability1").innerHTML = `${abilities[0]["ability"]["name"]}`;
+  }
+}
+
 function getType() {
   document
     .getElementById(`${currentPokemonNumber}`)
@@ -127,4 +140,3 @@ function checkType(openedPokemon) {
 function closeStats() {
   document.getElementById("pokedexBg").classList.add("d-none");
 }
-

@@ -57,13 +57,13 @@ function openInfosHtml(openInfos) {
 
       <tr class="pb-5">
         <td><b>Abilities:</b></td> 
-        <td>${openInfos["abilities"][0]["ability"]["name"]}</td>
-        <td>${openInfos["abilities"][1]["ability"]["name"]}</td>
+        <td id=ability1></td>
+        <td id=ability2></td>
       </tr>
 
       <tr class="pb-5">
         <td><b>Moves:</b></td> 
-        <td>${openInfos["moves"][0]["move"]["name"]}</td>
+        <td>${openInfos["moves"][0]["move"]["name"]},</td>
         <td>${openInfos["moves"][1]["move"]["name"]}</td>
       </tr>
 </tbody>
